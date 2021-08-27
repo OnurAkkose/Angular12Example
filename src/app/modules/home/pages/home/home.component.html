@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Ticket Sales Template</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div style="height: 100px;">
+			<app-home-header></app-home-header>
+			
+		</div>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">Onur Akköse</h2>
+				
+			</header>
+			<!-- Gallery -->
+			<div class="row tm-gallery">
+				<!-- gallery page 1 -->
+				<div id=" tm-gallery-page-pizza" class="" *ngFor="let ticket of ticketData">					
+					<article class="tm-gallery-item">
+						<figure>
+							<img src="../../../../../assets/img/ticket2jpg.jpg" style="height: 200px; width: 250px;" alt="Image"
+								class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">{{ticket.name}}</h4>
+								<p class="tm-gallery-description">{{ticket.company.name}}</p>
+					
+								<p style="margin-left: 10%;" class="tm-gallery-price">{{ticket.price}} TL <button (click)="saleTicket(ticket.id)" style="margin-left: 
+								10%;" class="button">Purchase</button></p>
+					
+								
+							</figcaption>
+							
+						</figure>
+					</article>
+				</div>
+			</div> <!-- gallery page 1 -->
+
+
+
+			<div class="tm-section tm-container-inner">
+				<div class="row">
+					<div class="col-md-6">
+						<figure class="tm-description-figure">
+							<img src="../../../../../assets/img/img-01.jpg" alt="Image" class="img-fluid" />
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<div class="tm-description-box">
+							<h4 class="tm-gallery-title">Maecenas nulla neque</h4>
+							<p class="tm-mb-45">Redistributing this template as a downloadable ZIP file on any template
+								collection site is strictly prohibited. You will need to <a rel="nofollow"
+									href="https://templatemo.com/contact">talk to us</a> for additional permissions
+								about our
+								templates. Thank you.</p>
+							<a href="about.html" class="tm-btn tm-btn-default tm-right">Read More</a>
+							<button class="btn btn-primary" (click)="onSendMessage()">
+								Send Message
+							  </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<app-home-footer></app-home-footer>
+
+		<script src="../../../../../assets/js/jquery.min.js"></script>
+		<script src="../../../../../assets/js/parallax.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				// Handle click on paging links
+				$('.tm-paging-link').click(function (e) {
+					e.preventDefault();
+
+					var page = $(this).text().toLowerCase();
+					$('.tm-gallery-page').addClass('hidden');
+					$('#tm-gallery-page-' + page).removeClass('hidden');
+					$('.tm-paging-link').removeClass('active');
+					$(this).addClass("active");
+				});
+			});
+		</script>
+		</div>
+</body>
+
+</html>
